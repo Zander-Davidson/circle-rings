@@ -1,5 +1,5 @@
-const WIDTH = 400;
-const HEIGHT = 400;
+const WIDTH = 800;
+const HEIGHT = 800;
 
 // Slider configuration variables
 const NUM_RINGS_CONFIG = { min: 1, max: 16, step: 1 };
@@ -33,6 +33,10 @@ let randomize_colors_button;
 // Spiral drift animation
 let play_sprial_drift = true;
 let spiral_drift_enabled_checkbox;
+
+// Radial blur effect
+let radial_blur_enabled_checkbox;
+let radial_blur_enabled_label;
 
 let colors = [];
 
@@ -108,6 +112,9 @@ function setup() {
     SPIRAL_DRIFT_CONFIG.step
   );
   spiral_drift_enabled_checkbox = createCheckbox('Animate Spiral Drift', true);
+
+  // Blur effect checkbox
+  radial_blur_enabled_checkbox = createCheckbox('Enable Blur Effect', false);
 
   // 3 layers per circle, so 3 colors per circle
   generate_random_colors(NUM_CIRCLES_CONFIG.max * NUM_RINGS_CONFIG.max * 3);
@@ -194,7 +201,9 @@ function draw_rings_of_circles(
     );  
     
     // adds a slight blur after drawing each ring to create a more dramatic glow effect that radiates outward from the center
-    filter(BLUR, 3); // Soften everything
+    if (radial_blur_enabled_checkbox.checked()) {
+      filter(BLUR, 3); // Soften everything
+    }
   }
 }
 
