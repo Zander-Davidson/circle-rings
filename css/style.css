@@ -31,35 +31,35 @@ canvas {
     display: block;
 }
 
+a {
+  text-decoration: none;
+  color: var(--text-color)
+}
+
+.created-by-label {
+    font-size: 16px;
+}
+
 .controls {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 300px;
+    height: 800px;
+    justify-content: center;
 }
 
 .color-controls-wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
-.color-controls-wrapper input[type="color"] {
-    height: 50px;
-    cursor: pointer;
-    flex: 1;
-    min-width: 80px;
-}
-
-.color-controls-wrapper p {
-    margin: 0;
-    width: 100px;
-    white-space: nowrap;
-}
-
-.color-controls-wrapper .slider-wrapper {
-    flex: 1;
-    max-width: 120px;
+.alpha-slider-label {
+    min-width: 115px;
+    text-align: left;
+    color: var(--text-color);
 }
 
 .spiral-drift-wrapper {
@@ -92,6 +92,8 @@ canvas {
 
 .slider-wrapper input[type="range"] {
     flex: 1;
+    outline: none;
+    box-shadow: none;
 }
 
 p {
@@ -159,13 +161,14 @@ label {
 }
 
 button {
-    margin: 10px 0 0 0;
+    margin: 0 0 0 0;
     padding: 8px 16px;
     color: var(--text-color);
     font-family: 'Goldman', serif;
-    font-size: 16px;
+    font-size: 20px;
     background: rgb(50, 50, 50);
     border: 1px solid rgb(100, 100, 100);
     cursor: pointer;
     border-radius: 4px;
+    text-shadow: var(--glow-shadow);
 }
